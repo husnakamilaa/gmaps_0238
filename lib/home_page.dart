@@ -39,11 +39,18 @@ class _HomePageState extends State<HomePage> {
                                   builder: (context) => const MapPage(),
                                 ),
                               );
-                              
+                              if (result != null) {
+                                setState(() {
+                                  alamatDipilih = result;
+                                });
+                              }
                             },
                           ),
                         ],
                       ),
+                      alamatDipilih == null
+                          ? const Text("Tidak ada alamat yang dipilih")
+                          : Text(alamatDipilih!),
                     ],
                   ),
                 ],
